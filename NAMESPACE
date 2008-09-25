@@ -1,0 +1,18 @@
+export( 
+   hilbertDefaultPalette, 
+   hilbertCurve,
+   hilbertCurvePoint,
+   plotHilbertCurve,
+   shrinkVector,
+   plotLongVector,
+   makeWiggleVector,
+   hilbertImage,
+   makeRandomTestData )
+   
+import( grid )
+
+useDynLib( HilbertVis,
+   hilbertCurveR,
+   shrink_vector_int,
+   shrink_vector_double,
+   make_wiggle_vector )
