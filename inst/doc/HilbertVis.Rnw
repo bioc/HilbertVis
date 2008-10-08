@@ -3,6 +3,7 @@
 
 \documentclass{article}
 
+\usepackage{Sweave}
 \usepackage[a4paper]{geometry}
 \usepackage{hyperref,graphicx}
 
