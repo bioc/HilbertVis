@@ -249,7 +249,7 @@ can also install \texttt{HilbertVisGUI} which provides a graphical tool to
 interactively explore Hilbert curve plots (Fig.\ \ref{GUI}). 
 
 To start the tool, load the package
-<<>>=
+<<eval=FALSE>>=
 library( HilbertVisGUI )
 @
 and simply write
@@ -280,11 +280,9 @@ peak and observe how you can inspect the peak's shape in the plot.
 
 To do the linear plot, \texttt{hilbertDisplay} calls the R function 
 \texttt{simpleLinPlot} defined as well in the \texttt{HilbertVisGUI} package. 
-This is a simple wrapper around the function \texttt{plotLongVector} discussed earlier. 
-Here is the definition of simpleLinPlot:
-<<>>=
-simpleLinPlot
-@
+This is a simple wrapper around the function \texttt{plotLongVector} discussed
+earlier. You may want to have a look at its definition.
+
 You can replace this function by supplying your own plotting function as the 
 argument \texttt{plotFun} to \texttt{hilbertDisplay}. Your function must take two 
 arguments that should be called \texttt{data} and \texttt{info}, as above, and will 
@@ -403,7 +401,8 @@ with the statistics programming language R. While \texttt{HilbertVis} can be ins
 on any R system (with R version at least 2.7), you need to have \texttt{gtkmm}
 available on your system in order to install \texttt{HilbertVisGUI}. You need 
 \texttt{HilbertVisGUI} only if you want to use the interactive tool described in 
-Section \label{SecGUI}.
+Section \label{SecGUI}. Don't worry, it is very easy to install gtkmm and the installer will tell you
+what to do.
 
 There is also a stand-alone version of HilbertVis that can be used independent of
 R. See \url{http://www.ebi.ac.uk/~anders/hilbert} for more information.
@@ -417,63 +416,24 @@ source( "http://bioconductor.org/biocLite.R" )
 biocLite( "HilbertVis" )
 \end{verbatim}
 
-\textit{Note:} \texttt{biocLite} does not work yet as \texttt{HilbertVis} is still in the
-Bioconductor peer-review process. Until then, you need to download the package 
-from the SVN system.
-
 \subsection{Installing HilbertVisGUI}
 
 The GUI component uses the \texttt{gtkmm} library, the C++ bindings for the GTK+
 widget system. \footnote{See \url{http://www.gtk.org/} for more information on the GTK+ 
 project.}
 
-\textbf{Linux and MacOS:} To use \texttt{HilbertVisGUI}, you hence need to 
-have installed (besides a reasonably 
-recent version of R, at least R 2.7.0) the 'gtkmm' library for GTK+ 2.4, with its 
-header files.
+Install \texttt{HilbertVisGUI} with \texttt{biocLite}, i.e., by typing
 
-In order to see whether you have gtkmm installed, type at the command prompt
-\begin{verbatim}
-pkg-config --modversion gtkmm-2.4
-\end{verbatim}
-
-If you do not get any output, \texttt{gtkmm-2.4} is missing or cannot be found by 
-\texttt{pkg-config}.
-
-In most Linux systems, you only need to use your distribution's package manager
-and install the \texttt{gtkmm} development package. See the following URL to learn how
-the package is called on the different distributions: \url{http://www.gtkmm.org/download.shtml}
-   
-Note that at the above URL, there is also a Fink package for use with MacOS X.
-
-Once you have verified that \texttt{gtkmm} is available, install \texttt{HilbertVisGUI} as 
-usual with \texttt{biocLite}.
 \begin{verbatim}
 source( "http://bioconductor.org/biocLite.R" )
 biocLite( "HilbertVisGUI" )
 \end{verbatim}
 
+On platforms with binary packages (i.e., Linux and the like), the installer will check whether gtkmm is
+available. If it cannot find it, it will display an explanation how to install it. 
 
-\textbf{MS Windows:} For Windows, you can find binaries of \texttt{gtkmm} on the Gnome FTP server. As of
-now, the URL is \url{http://ftp.gnome.org/pub/gnome/binaries/win32/gtkmm/}
-
-Note that you need the `gtkmm-win32-devel' package only if you want to install 
-HilbertVisGUI from source. If you have a pre-compiled binary
-package, the 'gtkmm-win32-runtime' package is sufficient.
-
-If you compile from source, make sure that the environment variable \texttt{GTK\_PATH} is set and
-gives the path to the GTK+/gtkmm installation.
-
-Again, once \texttt{gtkmm} is available, install \texttt{HilbertVisGUI} as 
-usual with \texttt{biocLite}.
-\begin{verbatim}
-source( "http://bioconductor.org/biocLite.R" )
-biocLite( "HilbertVisGUI" )
-\end{verbatim}
-
-\textit{Note:} \texttt{biocLite} does not work yet as \texttt{HilbertVis} is still in the
-Bioconductor peer-review process. Until then, you need to download the package 
-from the SVN system.
+On platforms with binary packages (Mac and Windows), this explanation appears once you load the package for the first
+time. You will be asked to simply download an automatic installer from a given web address.
 
 
 \section{Session Info}
