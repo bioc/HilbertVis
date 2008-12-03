@@ -52,7 +52,7 @@ See the package vignette for an explanation of this visualization technique.
    # Note also the ugly aliasing when you change the size of the plot window.
    # Using EBImage allows to display in each matrix element as one pixel:
    
-   if( require ( EBImage ) )
-      display( hilbertImage( dataVec, forEBImage=TRUE ) )
+   # if( require ( EBImage ) )
+   #    display( hilbertImage( dataVec, forEBImage=TRUE ) )
 
 }
