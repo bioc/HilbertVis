@@ -5,6 +5,7 @@ Title: Hilbert curve visualization
 Author: Simon Anders <anders@fs.tum.de>
 Maintainer: Simon Anders <anders@fs.tum.de>
 Depends: R (>= 2.6.0)
+Suggests: EBImage
 SystemRequirements: grid
 Description: Functions to visualize long vectors of 
 	integer data by means of Hilbert curves
