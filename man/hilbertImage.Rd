@@ -14,7 +14,14 @@ hilbertImage(data, level = 9, forEBImage = FALSE)
 \arguments{
   \item{data}{ A (potentially very long) vector of numerical data. }
   \item{level}{ The level of the Hilbert curve, determining the size of the returned matrix }
-  \item{forEBImage}{ If set to TRUE, an Image object (as defined in the EBImage package) will be returned. }
+  \item{forEBImage}{ If set to TRUE, an Image object (as defined in the EBImage
+  package) will be returned.
+  
+  NOTE TO MacOS X USERS: Due to a problem with EBImage's GTK+ bindings you 
+  are advised not to use EBImage and HilbertVis/HilbertVisGUI within the
+  same R session as it seems to cause crashes. This shall be rectified soon. 
+  [Note added 2008-12-18]
+ }
 }
 
 \details{
@@ -52,7 +59,6 @@ See the package vignette for an explanation of this visualization technique.
    # Note also the ugly aliasing when you change the size of the plot window.
    # Using EBImage allows to display in each matrix element as one pixel:
    
-   library( EBImage )
-   display( hilbertImage( dataVec, forEBImage=TRUE ) )
-
+   # if( require ( EBImage ) )
+   #    display( hilbertImage( dataVec, forEBImage=TRUE ) )
 }
