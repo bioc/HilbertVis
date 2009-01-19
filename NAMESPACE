@@ -7,7 +7,8 @@ export(
    plotLongVector,
    makeWiggleVector,
    hilbertImage,
-   makeRandomTestData )
+   makeRandomTestData,
+   seqBin )
    
 import( grid )
 
@@ -15,4 +16,6 @@ useDynLib( HilbertVis,
    hilbertCurveR,
    shrink_vector_int,
    shrink_vector_double,
-   make_wiggle_vector )
+   make_wiggle_vector,
+   seq_bin_double,
+   seq_bin_int )

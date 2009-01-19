@@ -30,3 +30,13 @@ makeWiggleVector <- function( start, end, value, chrlength ) {
    .Call( `make_wiggle_vector`, as.integer(start), as.integer(end),
       as.numeric(value), as.integer(chrlength) )
 }      
+
+seqBin <- function( x, binWidth, mode = c( "max", "min", "absmax", "mean" ) ) {
+   match.arg( mode )
+   modeNum <- as.integer( match( mode, c( "max", "min", "absmax", "mean" ) ) )
+   if( storage.mode( x ) == "integer" )
+      .Call( `seq_bin_int`, x, as.integer( binWidth ), modeNum )
+   else
+      .Call( `seq_bin_double`, x, as.integer( binWidth ), modeNum )
+
+}
