@@ -51,7 +51,6 @@ extern "C" SEXP seq_bin_int( SEXP vector, SEXP bin_width, SEXP binning_mode )
 {
    const int length = LENGTH(vector) / INTEGER(bin_width)[0] +
       ( LENGTH(vector) % INTEGER(bin_width)[0] ? 1 : 0 );
-   Rprintf( "%d %d %d\n", LENGTH(vector), INTEGER(bin_width)[0], length );
    SEXP res;
    if( INTEGER( binning_mode )[ 0 ] != 4 )
       res = allocVector( INTSXP, length );
