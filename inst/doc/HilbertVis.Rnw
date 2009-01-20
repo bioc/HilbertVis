@@ -29,7 +29,7 @@ Description of the Bioconductor packages\\ \texttt{HilbertVis} and \texttt{Hilbe
 
 In a number of different fields, intermediate results often take the form of
 extremely long data vectors with many millions of entries. In order to grasp the
-overall statistical structure and the distribution of features, special
+overall statistical structure and the distribution of features, specialdef
 visualisation techniques can be most helpful. The Bioconductor package
 ``HilbertVis'' offers such a tool.
 
@@ -198,41 +198,23 @@ intensity values for the plot. The function \texttt{hilbertImage} takes some opt
 for example \texttt{level}, in case you want another level (i.e. another matrix 
 size) than the default $9$.
 
-To plot the matrix, just pass it to the standard function \texttt{image}. By
-default, \texttt{image} uses a colour palette ranging from red to yellow, which
-is not too suitable for this kind of data. I prefer the low values to be white, so that the 
-peaks with high values come out with more contrast. Hence, the function 
-\texttt{hilbertDefaultPalette} produces a colour palette that ranges from white 
-over blue to red and is well suited for typical Hilbert plots. The following
-command (used to produce Fig.\ \ref{HilbertTest}) passes this palette to \texttt{image}'s 
-\texttt{col} argument and also suppresses plotting of the axes as they are not
-informative.
+To plot the matrix, we could just pass it to the standard functions \texttt{image} 
+or \texttt{levelplot}. The function \texttt{showHilbertImage} is a convenient wrapper around
+\texttt{levelplot} that sets a suitable colour palette and supresses labels and tickmarks:
 <<HilbertTest,fig=TRUE,include=FALSE>>=
-image( hMat, 
-   col=hilbertDefaultPalette( max(hMat), asArray=FALSE ),
-   xaxt="n", yaxt="n" )
+showHilbertImage( hMat )
 @
-
-In the present case, the range of values in \texttt{hMat} is only in the hundreds
-<<>>=
-range( hMat )
-@
-If you have larger ranges, you may want to rescale \texttt{hMat} before passing it
-to \texttt{image} in order to be able to use a palette of reasonable size.
 
 If you look at such an image on screen, you will notice that the \texttt{image} 
 function does not display one matrix element as one pixel but rather scales the
 image according to the window size. This typically results in distracting
 artifacts, and hence, it is preferable to use the \texttt{display} function from
-the \texttt{EBImage} package that allows to suppress scaling. As \texttt{display}
-cannot take an ordinary matrix but requires to be passed a special \texttt{Image}
-object, \texttt{hilbertImage} can be asked to produce such an object:
+the \texttt{EBImage} package that allows to suppress scaling. The 'mode' argument of
+\texttt{showHilbertImage} allows to use the \texttt{EBImage} package instead of 
+the \texttt{lattice} package to display the matrix:
 <<eval=FALSE>>=
-img <- hilbertImage( vec, forEBImage=TRUE )
-display( img )
+showHilbertImage( hMat, mode="EBImage" )
 @
-Note that the image is automatically coloured with the 
-\texttt{hilbertDefaultPalette}.
 
 \section{Interactive tool for data exploration}
 

@@ -1,5 +1,4 @@
 export( 
-   hilbertDefaultPalette, 
    hilbertCurve,
    hilbertCurvePoint,
    plotHilbertCurve,
@@ -8,14 +7,12 @@ export(
    makeWiggleVector,
    hilbertImage,
    makeRandomTestData,
-   seqBin )
+   showHilbertImage )
    
-import( grid )
+import( grid, lattice )
 
 useDynLib( HilbertVis,
    hilbertCurveR,
    shrink_vector_int,
    shrink_vector_double,
-   make_wiggle_vector,
-   seq_bin_double,
-   seq_bin_int )
+   make_wiggle_vector )

@@ -1,14 +1,17 @@
-shrinkVector <- function( vec, newLength ) {
+shrinkVector <- function( vec, newLength, 
+      mode = c( "max", "min", "absmax", "mean" ) ) {
    stopifnot( length( newLength ) == 1 )
    stopifnot( is.numeric( newLength ) )
    stopifnot( newLength > 0 )
    stopifnot( floor(newLength) == newLength )
    stopifnot( length(vec) >= newLength )
    stopifnot( is.numeric( vec ) )
+   match.arg( mode )
+   modeNum <- as.integer( match( mode, c( "max", "min", "absmax", "mean" ) ) )   
    if( is.integer( vec ) ) {
-      .Call( `shrink_vector_int`, vec, as.integer( newLength ) )
+      .Call( `shrink_vector_int`, vec, as.integer( newLength ), modeNum )
    } else {
-      .Call( `shrink_vector_double`, vec, as.integer( newLength ) )
+      .Call( `shrink_vector_double`, vec, as.integer( newLength ), modeNum )
    }   
 }   
 
@@ -31,12 +34,3 @@ makeWiggleVector <- function( start, end, value, chrlength ) {
       as.numeric(value), as.integer(chrlength) )
 }      
 
-seqBin <- function( x, binWidth, mode = c( "max", "min", "absmax", "mean" ) ) {
-   match.arg( mode )
-   modeNum <- as.integer( match( mode, c( "max", "min", "absmax", "mean" ) ) )
-   if( storage.mode( x ) == "integer" )
-      .Call( `seq_bin_int`, x, as.integer( binWidth ), modeNum )
-   else
-      .Call( `seq_bin_double`, x, as.integer( binWidth ), modeNum )
-
-}

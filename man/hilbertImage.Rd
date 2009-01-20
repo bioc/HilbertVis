@@ -8,18 +8,13 @@
 }
 
 \usage{
-hilbertImage(data, level = 9, forEBImage = FALSE)
+hilbertImage(data, level = 9, mode = "absmax")
 }
 
 \arguments{
   \item{data}{ A (potentially very long) vector of numerical data. }
   \item{level}{ The level of the Hilbert curve, determining the size of the returned matrix }
-  \item{forEBImage}{ If set to TRUE, an Image object (as defined in the EBImage package) will be returned.
-  
-  NOTE TO MacOS X USERS: Due to a problem with EBImage's GTK+ bindings you 
-  are advised not to use EBImage and HilbertVis/HilbertVisGUI within the
-  same R session as it seems to cause crashes. This shall be rectified soon. 
-  [Note added 2008-12-18]   }
+  \item{mode}{ The binning mode. See \code{\link{shrinkVector}} for details.  }
 }
 
 \details{
@@ -28,11 +23,12 @@ See the package vignette for an explanation of this visualization technique.
 
 \value{
   A matrix of dimension \code{2^level} x \code{2^level}. Each matrix element corresponds to a bin of consecutive elements
-    of the data vector, the bins arranged to follow the Hilbert curve of the given level. The value of a 
-    matrix element is the maximum value of the data vector elements in the bin.
+    of the data vector, the bins arranged to follow the Hilbert curve of the given level. By default, the value of a 
+    matrix element is either the largest or smallest element in the bin, whichever is larger by absolute value. (See 
+    \code{\link{shrinkVector}} for other possible binning modes.)
     
-  If \code{forEBIImage=TRUE}, a true-color Image object is returned instead, where each pixel is colored
-  according to the palette constructed by the function \code{\link{hilbertDefaultPalette}}.
+  To display such a matrix graphically, you can use the standard functions \code{image} or \code{levelplot}
+  but the function \code{\link{showHilbertImage}} may be more convenient.
 }
 \author{ Simon Anders, EMBL-EBI, sanders@fs.tum.de }
 \note{ For an interactive GUI to explore a Hilbert curve visualisation, use the function
@@ -50,13 +46,13 @@ See the package vignette for an explanation of this visualization technique.
    # Get the Hilbert curve matrix
    hMat <- hilbertImage( dataVec )
    
-   # Plot it with the 'image' function and the 'hilbertDefaultPalette'
-   image( hMat, col=hilbertDefaultPalette( max(hMat), asArray=FALSE ) )
+   # Plot it with the 'showHilbertImage' function
+   showHilbertImage( hMat )
    
    # Note how you can now see the non-uniformity hidden in the previous plot.
    # Note also the ugly aliasing when you change the size of the plot window.
    # Using EBImage allows to display in each matrix element as one pixel:
    
    # if( require ( EBImage ) )
-   #    display( hilbertImage( dataVec, forEBImage=TRUE ) )
+   #    showHilbertImage( hMat, mode="EBImage" )
 }
