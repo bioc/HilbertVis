@@ -2,10 +2,10 @@
 \alias{plotLongVector}
 \title{ A simple function to plot a very long vector. }
 \description{
-This function does basically the same as just calling \code{plot(vec)} but is much faster in case of a very long vector. This is because it first calls \code{\link{shrinkVector}}.
+This function does basically the same as just calling \code{plot( vec, type="h" )} but is much faster in case of a very long vector. This is because it first calls \code{\link{shrinkVector}}.
 }
 \usage{
-plotLongVector(vec, offset = 1, shrinkLength = 4000, xlab = "", ylab = "", type = "h", ...)
+plotLongVector(vec, offset = 1, shrinkLength = 4000, xlab = "", ylab = "", ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -14,7 +14,6 @@ plotLongVector(vec, offset = 1, shrinkLength = 4000, xlab = "", ylab = "", type 
   \item{shrinkLength}{ To which length to shrink the vector before plotting it. Should be at least the width of your plot in pixels.}
   \item{xlab}{ The label of the x axis, to be passed to \code{\link{plot}}. }
   \item{ylab}{ The label of the y axis, to be passed to \code{\link{plot}}. }
-  \item{type}{ The plot type, to be passed to \code{\link{plot}}. By default, type 'h', i.e., needles, are used. }
   \item{\dots}{ Further arguments to be passed to \code{\link{plot}}.}
 }
 \value{

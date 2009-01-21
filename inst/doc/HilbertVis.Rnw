@@ -19,7 +19,7 @@
 \title{\textsf{\textbf{Visualising very long data vectors\\ with the Hilbert curve}\\
 Description of the Bioconductor packages\\ \texttt{HilbertVis} and \texttt{HilbertVisGUI}.}}
 
-\date{2008-09-23}
+\date{2009-01-20}
 
 \begin{document}
 
@@ -44,7 +44,7 @@ ChIP-Seq data), see the publication \cite{HilbertVisBioinf} or the vignette
 set.seed(271828)
 @
 
-The command \texttt{make RandomTestData} (which is provided only for demonstration purposes) 
+The command \texttt{makeRandomTestData} (which is provided only for demonstration purposes) 
 produces a very long vector filled with random data
 <<>>=
 library( HilbertVis )
@@ -201,8 +201,11 @@ size) than the default $9$.
 To plot the matrix, we could just pass it to the standard functions \texttt{image} 
 or \texttt{levelplot}. The function \texttt{showHilbertImage} is a convenient wrapper around
 \texttt{levelplot} that sets a suitable colour palette and supresses labels and tickmarks:
-<<HilbertTest,fig=TRUE,include=FALSE>>=
-showHilbertImage( hMat )
+<<eval=FALSE>>=
+showHilbertImage( hMat ) 
+@
+<<HilbertTest,echo=FALSE,fig=TRUE,include=FALSE>>=
+show( showHilbertImage( hMat ) )
 @
 
 If you look at such an image on screen, you will notice that the \texttt{image} 
