@@ -16,14 +16,15 @@ shrinkVector <- function( vec, newLength,
 }   
 
 plotLongVector <- function (vec, offset = 1, shrinkLength = 4000, xlab = "", ylab = "", ... ) {
-plot( NULL, xlab = xlab, ylab = ylab, 
-   xlim = c( offset, offset+shrinkLength-1 ) * (length(vec)/shrinkLength) ,
-   ylim = c( min( vec ), max( vec ) ), ... )
-segments( 
-   offset + 0:(shrinkLength - 1) * (length(vec)/shrinkLength), 
-   shrinkVector(vec, shrinkLength, mode="min"), 
-   offset + 1:shrinkLength * (length(vec)/shrinkLength), 
-   shrinkVector(vec, shrinkLength, mode="max"), ... ) }
+   shrinkLength <- floor( shrinkLength )
+   plot( NULL, xlab = xlab, ylab = ylab, 
+      xlim = offset + c( 0, shrinkLength-1 ) * (length(vec)/shrinkLength) ,
+      ylim = c( min( vec, na.rm=TRUE ), max( vec, na.rm=TRUE ) ), ... )
+   segments( 
+      offset + 0:(shrinkLength - 1) * (length(vec)/shrinkLength), 
+      shrinkVector(vec, shrinkLength, mode="min"), 
+      offset + 1:shrinkLength * (length(vec)/shrinkLength), 
+      shrinkVector(vec, shrinkLength, mode="max"), ... ) }
    
 makeWiggleVector <- function( start, end, value, chrlength ) {
    stopifnot( is.numeric( start ) )

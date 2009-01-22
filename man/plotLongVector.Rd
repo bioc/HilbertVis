@@ -2,7 +2,7 @@
 \alias{plotLongVector}
 \title{ A simple function to plot a very long vector. }
 \description{
-This function does basically the same as just calling \code{plot( vec, type="h" )} but is much faster in case of a very long vector. This is because it first calls \code{\link{shrinkVector}}.
+This function does basically the same as just calling \code{plot( vec )} but is much faster in case of a very long vector. This is because it first calls \code{\link{shrinkVector}}.
 }
 \usage{
 plotLongVector(vec, offset = 1, shrinkLength = 4000, xlab = "", ylab = "", ...)

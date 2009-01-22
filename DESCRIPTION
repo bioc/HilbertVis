@@ -1,6 +1,6 @@
 Package: HilbertVis
-Version: 1.1.5
-Date: 2009-01-20
+Version: 1.1.6
+Date: 2009-01-22
 Title: Hilbert curve visualization
 Author: Simon Anders <anders@fs.tum.de>
 Maintainer: Simon Anders <anders@fs.tum.de>
