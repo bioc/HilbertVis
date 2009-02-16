@@ -8,6 +8,6 @@ Depends: R (>= 2.6.0), grid, lattice
 Description: Functions to visualize long vectors of 
 	integer data by means of Hilbert curves
 License: GPL >=3
-URL: http://www.ebi.ac.uk/~anders
+URL: http://www.ebi.ac.uk/~anders/hilbert
 biocViews: Visualization
 Packaged: Tue Sep 23 15:55:05 2008; anders
