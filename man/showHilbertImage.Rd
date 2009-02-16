@@ -27,7 +27,7 @@ showHilbertImage( mat,
   }
 }
 \value{
-  A lattice or EBImage graphics object. For all modes except "EBImage-batch" it is marked "invisible".
+  A lattice or EBImage graphics object. For all modes except ``EBImage-batch'' it is marked ``invisible''.
 }
 \author{ Simon Anders, EMBL-EBI (sanders\@fs.tum.de) }
 \seealso{ \code{\link{hilbertImage}} }
