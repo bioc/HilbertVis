@@ -1,10 +1,11 @@
 Package: HilbertVis
-Version: 1.1.6
+Version: 1.1.7
 Date: 2009-01-22
 Title: Hilbert curve visualization
 Author: Simon Anders <anders@fs.tum.de>
 Maintainer: Simon Anders <anders@fs.tum.de>
 Depends: R (>= 2.6.0), grid, lattice
+Suggests: EBImage
 Description: Functions to visualize long vectors of 
 	integer data by means of Hilbert curves
 License: GPL >=3
