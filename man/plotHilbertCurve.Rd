@@ -13,8 +13,8 @@
 \arguments{
   \item{lv}{The iteration level. A Hilbert curve of level \code{lv} spans a square with
   side length \code{2^lv} (coordinates ranging from 0 to \code{2^lv-1}) and has \code{4^lv}
-  points. Values \code{lv > 7} will take very long and yield a cluttered mash of
-  undistuingishable lines.}
+  points. Values \code{lv > 7} will take very long and yield a cluttered mesh of
+  indistuingishable lines.}
   \item{new.page}{Boolean indicating whether to start a new graphics page (default: yes).}
 }
 
