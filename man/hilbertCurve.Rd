@@ -6,7 +6,7 @@
 \title{ calculate finite approximations of the Hilbert curve }
 \description{
    These functions calculate the Hilbert curve in its finite approximations.
-   \code{hilbertCurvePoint} gives teh coordinates of one point and \code{hilbertCurve} 
+   \code{hilbertCurvePoint} gives the coordinates of one point and \code{hilbertCurve} 
    returns an array with the coordinates of all \code{4^lv} points. The
    functions are not needed for \code{\link{hilbertImage}} and only provided
    for demonstration purposes. \code{\link{plotHilbertCurve}} makes use of them.
@@ -18,7 +18,7 @@ hilbertCurvePoint( t, lv )
 }
 
 \arguments{
-  \item{lv}{The iteration level. A hilbert curve of level \code{lv} spans a square with
+  \item{lv}{The iteration level. A Hilbert curve of level \code{lv} spans a square with
   side length \code{2^lv} (coordinates ranging from 0 to \code{2^lv-1}) and has \code{4^lv}
   points.}
   \item{t}{The point index in the Hilbert curve. Must be an integer in \code{0:(4^lv-1)}.}
