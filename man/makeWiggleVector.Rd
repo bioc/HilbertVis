@@ -10,12 +10,12 @@ values in the vector elements indicated by the intervals.
 makeWiggleVector(start, end, value, chrlength )
 }
 \arguments{
-  \item{start}{ The start coordinates of the intervals. As usual in R, these ar 1-based. }
+  \item{start}{ The start coordinates of the intervals. As usual in R, these are 1-based.}
   \item{end}{ The end coordinates of the intervals. As usual, the end points are
-  included }
+  included.}
   \item{value}{ The values to be put in the wiggle vector. Where intervals
-  overlap, the values are added. }
-  \item{chrlength}{ The desired length of the returned vector. }
+  overlap, the values are added.}
+  \item{chrlength}{ The desired length of the returned vector.}
 }
 \value{
   A vector as described above.
