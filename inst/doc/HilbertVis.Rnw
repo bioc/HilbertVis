@@ -19,7 +19,7 @@
 \title{\textsf{\textbf{Visualising very long data vectors\\ with the Hilbert curve}\\
 Description of the Bioconductor packages\\ \texttt{HilbertVis} and \texttt{HilbertVisGUI}.}}
 
-\date{2009-01-20}
+\date{2009-06-29}
 
 \begin{document}
 
@@ -376,6 +376,18 @@ examples above. For details, see the help page for \texttt{makeWiggleVector}.
 Another source of genomic data are aligned short reads from high-throughput sequencing 
 experiments. See \cite{ShortRead_and_HilbertCurveDisplay} for an explanation how to deal with such
 data.
+
+\section{Rle vectors}
+
+Long data vectors with are step-wise constand are more suitably dealt with in
+run-length encoding (RLE), i.e., instead of storing all values, one has two
+vectors, one that has the lengths of the constant stretches, one with the
+corresponding values. The \texttt{Rle} class in the \texttt{IRanges} package
+provides this functionality.
+
+The functions \texttt{hilbertDisplay} and \texttt{hilbertDisplayThreeChannel}
+can both work with \texttt{Rle} vectors as well as with ordinary vectors (since
+version 1.3.1 of \texttt{HilbertVisGUI}).
  
 \appendix
 
