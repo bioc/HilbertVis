@@ -133,7 +133,7 @@ shows our data vector visualised in this way.
 \end{figure}
 
 In order to understand this plot you need to know how the pixels are arranged 
-to fulfil the requirements just outlined as well as possible. To my knowledge, 
+to fulfill the requirements just outlined as well as possible. To my knowledge, 
 the first to come up with the solution also 
 used here was D.\ A.\ Keim in Ref.\ \cite{HilbertVisualization_first} (where 
 he used the technique to visualise long time-series data of stock-market prices). 
@@ -379,7 +379,7 @@ data.
 
 \section{Rle vectors}
 
-Long data vectors with are step-wise constand are more suitably dealt with in
+Long data vectors with are step-wise constant are more suitably dealt with in
 run-length encoding (RLE), i.e., instead of storing all values, one has two
 vectors, one that has the lengths of the constant stretches, one with the
 corresponding values. The \texttt{Rle} class in the \texttt{IRanges} package
