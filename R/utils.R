@@ -5,15 +5,32 @@ shrinkVector <- function( vec, newLength,
    stopifnot( newLength > 0 )
    stopifnot( floor(newLength) == newLength )
    stopifnot( length(vec) >= newLength )
-   stopifnot( is.numeric( vec ) )
-   match.arg( mode )
+   mode <- match.arg( mode )
    modeNum <- as.integer( match( mode, c( "max", "min", "absmax", "mean" ) ) )   
-   if( is.integer( vec ) ) {
+   if( is( vec, "Rle" ) ) {
+      shrinkRleVector( vec, newLength, mode )   
+   } else if( is.integer( vec ) ) {
       .Call( `shrink_vector_int`, vec, as.integer( newLength ), modeNum )
-   } else {
+   } else if( is.numeric( vec ) ) {
       .Call( `shrink_vector_double`, vec, as.integer( newLength ), modeNum )
-   }   
+   } else
+      stop( "vec must be an integer or numeric vector or an IRanges::Rle object" )
 }   
+
+shrinkRleVector <- function (vec, newLength, mode = c("max", "min", "absmax", "mean")) 
+{
+   mode <- match.arg( mode )
+   segStarts <- length(vec) / newLength * 0:(newLength-1) + 1
+   segEnds   <- length(vec) / newLength * 1:newLength + 1
+   switch( mode,
+      `max` = aggregate( vec, FUN=max, start=segStarts, end=segEnds ),
+      `min` = aggregate( vec, FUN=min, start=segStarts, end=segEnds ),
+      `absmax` = {
+         mx = aggregate( vec, FUN=max, start=segStarts, end=segEnds )
+         mn = aggregate( vec, FUN=min, start=segStarts, end=segEnds )
+         ifelse( abs(mx) > abs(mn), mx, mn ) },
+      `mean` = aggregate( vec, FUN=mean, start=segStarts, end=segEnds ) )
+}      
 
 plotLongVector <- function (vec, offset = 1, shrinkLength = 4000, xlab = "", ylab = "", ... ) {
    shrinkLength <- floor( shrinkLength )

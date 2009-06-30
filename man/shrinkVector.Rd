@@ -12,7 +12,8 @@ each of the bins with one number it returned.
 shrinkVector(vec, newLength,  mode = c("max", "min", "absmax", "mean"))
 }
 \arguments{
-  \item{vec}{ The vector to be shrunk. May be numeric or integer.}
+  \item{vec}{ The vector to be shrunk. May be an ordinary numeric or integer vector or an
+  IRanges::Rle vector.}
   \item{newLength}{ The desired size of the return vector, i.e., the number of
   partitions }
   \item{mode}{ the summerization mode:
