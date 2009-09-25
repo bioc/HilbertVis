@@ -31,8 +31,10 @@ See the package vignette for an explanation of this visualization technique.
   but the function \code{\link{showHilbertImage}} may be more convenient.
 }
 \author{ Simon Anders, EMBL-EBI, sanders@fs.tum.de }
-\note{ For an interactive GUI to explore a Hilbert curve visualisation, use the function
-\code{\link[hilbertVisGUI:hilbertDisplay]{hilbertDisplay}} in the \code{HilbertVisGUI} package.
+\note{ For an interactive GUI to explore a Hilbert curve visualisation,
+  use the function 
+  \code{\link[HilbertVisGUI:hilbertDisplay]{hilbertDisplay}} in the
+  \code{HilbertVisGUI} package. 
 }
 \examples{
    # Get a vector with example data
