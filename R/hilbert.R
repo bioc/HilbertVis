@@ -12,7 +12,7 @@ plotHilbertCurve <- function( lv, new.page=TRUE ) {
    if( new.page )
       grid.newpage()
    pushViewport( plotViewport( c( 3, 3, 2, 2 ) ) )
-   pushViewport( viewport( x=.5, y=.5, width=1, height=1, default.unit="snpc" ) )
+   pushViewport( viewport( x=.5, y=.5, width=1, height=1, default.units="snpc" ) )
    bgd <- (-.5):(2^lv-.5) 
    pushViewport( dataViewport( xscale=range(bgd), 
       yscale=range(bgd) ) )
