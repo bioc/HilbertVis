@@ -28,7 +28,7 @@ shrinkVector(vec, newLength,  mode = c("max", "min", "absmax", "mean"))
 }
 \author{ Simon Anders, EMBL-EBI (sanders\@fs.tum.de) }
 \seealso{ \code{\link{plotLongVector}},
-\code{\link[ShortRead:pileup]{ShortRead::pileup}}, 
+\code{\link[Rsamtools:pileup]{Rsamtools::pileup}}, 
 \code{\link[HilbertVisGUI:simpleLinPlot]{HilbertVisGui::simpleLinPlot}} }
 \examples{
    shrinkVector( 100000 + 1:1000, 17 )
