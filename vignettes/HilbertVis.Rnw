@@ -420,7 +420,7 @@ The GUI component uses the \texttt{gtkmm} library, the C++ bindings for the GTK+
 widget system. \footnote{See \url{http://www.gtk.org/} for more information on the GTK+ 
 project.}
 
-Install \texttt{HilbertVisGUI} with \texttt{biocLite}, i.e., by typing
+Install \texttt{HilbertVisGUI} with \texttt{biocManager}, i.e., by typing
 
 \begin{verbatim}
 if (!requireNamespace("BiocManager", quietly=TRUE))
