@@ -16,7 +16,7 @@ SEXP make_wiggle_vector( SEXP start, SEXP end, SEXP value, SEXP chrlength )
          error( buf );
       }
       if( INTEGER(end)[i] > length(res) )
-	 error( "'chrlength' is too small" );	 
+	 error( "%s", "'chrlength' is too small" );	 
       for( j = INTEGER(start)[i]; j <= INTEGER(end)[i]; j++ )
 	 REAL(res)[j-1] += REAL(value)[i];
    }
