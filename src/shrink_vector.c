@@ -38,7 +38,7 @@ SEXP shrink_vector_int( SEXP vector, SEXP new_size, SEXP binning_mode )
                val += INTEGER( vector )[ j ];
                break;
             default:
-               error( "Unknown binning mode." );
+               error( "%s", "Unknown binning mode." );
          }
       if( INTEGER( binning_mode )[ 0 ] != 4 )
          INTEGER( res )[ i ] = val;
@@ -80,7 +80,7 @@ SEXP shrink_vector_double( SEXP vector, SEXP new_size, SEXP binning_mode )
                val += REAL( vector )[ j ];
                break;
             default:
-               error( "Unknown binning mode." );
+               error( "%s", "Unknown binning mode." );
          }
       if( INTEGER( binning_mode )[ 0 ] == 4 )
          val /= ( nxtbin - curbin );
